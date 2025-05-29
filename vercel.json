@@ -1,18 +1,17 @@
 {
   "version": 2,
+  "builds": [
+    {
+      "src": "app.js",
+      "use": "@vercel/node"
+    }
+  ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/api/index.js"
+      "dest": "app.js"
     }
   ],
-  "functions": {
-    "api/index.js": {
-      "maxDuration": 30,
-      "includeFiles": "models/**",
-      "excludeFiles": "node_modules/aws-sdk/**"
-    }
-  },
   "env": {
     "NODE_ENV": "production",
     "DB_SSL": "true"
