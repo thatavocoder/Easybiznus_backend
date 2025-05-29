@@ -8,17 +8,18 @@ module.exports = {
     host: process.env.DB_HOST || 'localhost',
     port: process.env.DB_PORT || 5432,
     dialect: 'postgres',
-    logging: console.log, 
+    logging: console.log, // Set to false to disable SQL logging
     pool: {
       max: 5,
       min: 0,
       acquire: 30000,
       idle: 10000
     },
+    // Add SSL configuration for development
     dialectOptions: {
       ssl: process.env.DB_SSL === 'true' ? {
         require: true,
-        rejectUnauthorized: false 
+        rejectUnauthorized: false // For development only
       } : false
     }
   },
@@ -30,6 +31,7 @@ module.exports = {
     port: process.env.DB_PORT || 5432,
     dialect: 'postgres',
     logging: false,
+    // Add SSL configuration for test
     dialectOptions: {
       ssl: process.env.DB_SSL === 'true' ? {
         require: true,
@@ -51,14 +53,12 @@ module.exports = {
       acquire: 30000,
       idle: 10000
     },
+
     dialectOptions: {
       ssl: {
         require: true,
-        rejectUnauthorized: false, // Changed from true to false for Neon
-        ca: process.env.DB_CA_CERT || undefined
+        rejectUnauthorized: true
       }
-    },
-    // Add native support for better compatibility
-    native: false
+    }
   }
 };
