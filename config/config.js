@@ -54,8 +54,11 @@ module.exports = {
     dialectOptions: {
       ssl: {
         require: true,
-        rejectUnauthorized: true
+        rejectUnauthorized: false, // Changed from true to false for Neon
+        ca: process.env.DB_CA_CERT || undefined
       }
-    }
+    },
+    // Add native support for better compatibility
+    native: false
   }
 };

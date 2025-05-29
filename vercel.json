@@ -12,5 +12,12 @@
       "dest": "/server.js"
     }
   ],
-  "installCommand": "npm install"
+  "functions": {
+    "server.js": {
+      "maxDuration": 30
+    }
+  },
+  "env": {
+    "NODE_ENV": "production"
+  }
 }
