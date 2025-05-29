@@ -19,7 +19,6 @@
     "jsonwebtoken": "^9.0.2",
     "pg": "^8.11.3",
     "pg-hstore": "^2.3.4",
-    "pg-native": "^3.0.1",
     "sequelize": "^6.37.3"
   },
   "devDependencies": {
@@ -27,6 +26,6 @@
     "sequelize-cli": "^6.6.2"
   },
   "engines": {
-    "node": ">=18.x"
+    "node": "18.x"
   }
 }
