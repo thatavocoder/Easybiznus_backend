@@ -8,6 +8,7 @@ module.exports = {
     host: process.env.DB_HOST || 'localhost',
     port: process.env.DB_PORT || 5432,
     dialect: 'postgres',
+    dialectModule: require('pg'),
     logging: console.log, // Set to false to disable SQL logging
     pool: {
       max: 5,
@@ -30,6 +31,7 @@ module.exports = {
     host: process.env.DB_HOST || 'localhost',
     port: process.env.DB_PORT || 5432,
     dialect: 'postgres',
+    dialectModule: require('pg'),
     logging: false,
     dialectOptions: {
       ssl: process.env.DB_SSL === 'true' ? {
@@ -45,6 +47,7 @@ module.exports = {
     host: process.env.DB_HOST,
     port: process.env.DB_PORT || 5432,
     dialect: 'postgres',
+    dialectModule: require('pg'),
     logging: false,
     pool: {
       max: 10,
